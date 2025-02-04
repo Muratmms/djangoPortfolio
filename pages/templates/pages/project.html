@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Single{% endblock %}
+
+
+{% block content %}
+<section id="content">
+<div class="content-wrap pt-4 mt-1 overflow-visible">
+
+	<div class="container-fluid position-relative scroll-detect" style="--bs-gutter-x: 1.875rem; height: calc(100vh + 90vh);">
+		<img data-src="{% static 'demos/project/images/portfolio/single.jpg' %}" alt=".." class="d-block lazy rounded mx-auto object-cover h-100 vh-90 position-sticky all-ts" style="--cnvs-transitions: .3s linear; width: calc(30% + calc(1% * var(--cnvs-scroll-percent))); top: 120px;">
+	</div>
+
+	<div class="container mw-md mt-5 mt-lg-6 scroll-detect" data-scroll-offset="20%">
+		<h1 class="fs-1 fst-italic"><span class="nocolor text-fill-effect all-ts" style="--cnvs-transitions:.75s ease;">Open Imagination</span></h1>
+		<p class="fs-3 font-primary"><span class="nocolor text-fill-effect all-ts" style="--cnvs-transitions:.75s ease;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus doloribus, similique earum voluptate quibusdam quo dolores assumenda iste distinctio ullam, reprehenderit explicabo suscipit deserunt veritatis quas eligendi. Vero, deleniti eos!</span></p>
+	</div>
+	<div class="container mt-5 mt-lg-6">
+		<div class="masonry-thumbs grid-container row row-cols-3" data-lightbox="gallery" style="--bs-gutter-x: 1.25rem; --bs-gutter-y: 1.25rem;">
+			{% for gallery in gallery_items %}
+			<a class="grid-item" href="{% static 'images/portfolio/full/'|add:gallery.image %}" data-lightbox="gallery-item"><img class="rounded-6" src="{% static 'images/portfolio/2/'|add:gallery.image %}"></a>
+			{% endfor %}
+		</div>
+
+	</div>
+
+	<div class="container mw-md mt-5 mt-lg-6">
+		<div class="row">
+			<div class="col-6">
+				<p class="mb-0 op-05">Created by</p>
+			</div>
+			<div class="col-6">
+				<p class="text-medium mb-0">John Doe</p>
+			</div>
+			<div class="line my-3"></div>
+			<div class="col-6">
+				<p class="mb-0 op-05">Completed on</p>
+			</div>
+			<div class="col-6">
+				<p class="text-medium mb-0">17th March 2022</p>
+			</div>
+			<div class="line my-3"></div>
+			<div class="col-6">
+				<p class="mb-0 op-05">Skills</p>
+			</div>
+			<div class="col-6">
+				<div><a href="{% url 'project' %}" class="badge bg-contrast-200 h-bg-color text-contrast-900 h-text-contrast-100 fw-normal py-2 px-3">HTML</a> <a href="demo-project-single.html#" class="badge bg-contrast-200 h-bg-color text-contrast-900 h-text-contrast-100 fw-normal py-2 px-3">CSS3</a></div>
+			</div>
+			<div class="line my-3"></div>
+			<div class="col-6">
+				<p class="mb-0 op-05">Client</p>
+			</div>
+			<div class="col-6">
+				<p class="text-medium mb-0"><a href="{% url 'project' %}" class="color h-text-light"><i class="bi-box-arrow-up-right me-2"></i>Google Inc.</a></p>
+			</div>
+		</div>
+
+		<p class="fs-4 font-primary mt-5 mt-lg-6">Efficiently fashion maintainable leadership via enterprise users. Globally myocardinate sticky technologies for focused intellectual capital. Authoritatively reintermediate extensible processes whereas enabled core competencies. Conveniently reinvent cross-unit materials before inexpensive partnerships. Phosfluorescently brand distributed relationships whereas proactive partnerships. <br><br>
+
+		Completely extend front-end total.</p>
+	</div>
+
+	<div class="text-center mt-6 text-smaller"><a href="{% url 'home' %}" class="text-contrast-600"><i class="bi-arrow-left me-2"></i><u>Back to Projects</u></a></div>
+
+</div>
+
+</section><!-- #content end -->
+
+{% endblock %}		

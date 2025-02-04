@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}About{% endblock %}
+
+
+{% block content %}
+
+<section id="content">
+<div class="content-wrap pt-4 mt-1">
+
+	<div class="text-center px-5 mw-md mx-auto mt-lg-5 mb-6">
+		<p class="text-uppercase ls-2 fw-bold color">PixelPerfection Studios</p>
+		<h1 class="display-4 fst-italic">Crafting Dreams into Visual Reality - Where Creativity Meets Precision for Striking Designs That Leave a Lasting Impression.</h1>
+	</div>
+
+	<div class="clear mb-lg-4"></div>
+
+	<div class="container-fluid" style="--bs-gutter-x: 1.875rem">
+		<div class="row align-items-stretch g-3">
+			{% for feature in feature_items %}
+			<div class="col-lg-4 col-md-6">
+				<div class="card rounded-6">
+					<div class="card-body p-5">
+						<h3 class="font-body fs-4 mb-3"><i class="{{feature.extraData.icon}} me-2"></i> {{ feature.title }}</h3>
+						<p class="mb-0">{{ feature.description }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<!-- <div class="col-lg-4 col-md-6">
+				<div class="card rounded-6">
+					<div class="card-body p-5">
+						<h3 class="font-body fs-4 mb-3"><i class="bi-easel me-2"></i> Beautifully Presented</h3>
+						<p class="mb-0">Compelling aesthetics conveying messages through meticulously crafted, beautiful design.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card rounded-6">
+					<div class="card-body p-5">
+						<h3 class="font-body fs-4 mb-3"><i class="bi-bounding-box-circles me-2"></i> Extensively Extendable</h3>
+						<p class="mb-0">Future-proof your project with adaptable, extensively extendable features for scalability.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card rounded-6">
+					<div class="card-body p-5">
+						<h3 class="font-body fs-4 mb-3"><i class="bi-gear-wide-connected me-2"></i> Powerfully Customizable</h3>
+						<p class="mb-0">Empower your vision with elements that are powerfully customizable and distinctive.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card rounded-6">
+					<div class="card-body p-5">
+						<h3 class="font-body fs-4 mb-3"><i class="bi-truck me-2"></i> Ingeniusly Transformable</h3>
+						<p class="mb-0">Experience innovation as your ideas are Ingeniusly transformable into stunning realities.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card rounded-6">
+					<div class="card-body p-5">
+						<h3 class="font-body fs-4 mb-3"><i class="bi-info-circle me-2"></i> Enterprise Support</h3>
+						<p class="mb-0">Robust solutions tailored to elevate enterprises, ensuring unmatched growth and support.</p>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+
+</div>
+</section><!-- #content end -->
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+
+
+<section id="content">
+	<div class="content-wrap pb-3">
+		<div class="text-center px-5 mw-md mx-auto mt-lg-5 mb-6">
+			<p class="text-uppercase ls-2 fw-bold color">PixelPerfection Studios</p>
+			<h1 class="display-4 fst-italic">
+				Crafting Dreams into Visual Reality - Where Creativity Meets Precision for Striking Designs That Leave a Lasting Impression.
+			</h1>
+		</div>
+
+		
+		<div class="container-fluid" style="--bs-gutter-x: 1.875rem">
+			<div id="portfolio" class="portfolio row g-3">
+				{% for item in portfolio_items %}
+				<article class="portfolio-item col-sm-6 col-12">
+					<div class="grid-inner" >
+						{% if item.type == "video" %}
+						<div class="portfolio-image rounded videoplay-on-hover">
+							<div class="video-wrap vh-100" >
+								
+								<video poster="{% static 'one-page/images/videos/' %}{{ item.extraData.poster }}" class="d-block" preload="auto" loop muted playsinline>
+									<source src="{% static 'one-page/images/videos/' %}{{ item.extraData.video_src }}" type="video/mp4">
+								</video>
+							</div>
+						</div>
+						
+						{% elif item.type == "slider" %}
+						<div class="portfolio-image">
+							<div class="fslider" data-arrows="true" data-pagi="false" data-speed="800">
+								<div class="flexslider">
+									<div class="slider-wrap">
+										{% for image in item.extraData.images %}
+										<div class="slide">
+											<a href="{% url 'project' %}">
+												<img src="{% static 'demos/project/images/portfolio/'|add:image %}" alt="{{ item.title }}">
+											</a>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+						{% elif item.type == "image" %}
+						<div class="portfolio-image">
+							<a href="{% url 'project' %}">
+								<img src="{% static 'demos/project/images/portfolio/'|add:item.image %}" alt="{{ item.title }}">
+							</a>
+						</div>
+						{% endif %}
+						<div class="bg-overlay">
+							<div class="bg-overlay-content dark flex-column">
+								<div class="portfolio-desc">
+									<h3><a href="{% url 'project' %}">{{ item.title }}</a></h3>
+									<p class="d-none d-md-block">{{ item.description }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				{% endfor %}
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+
+{% endblock %}
+
+{% block scripts %} 
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('.videoplay-on-hover').hover( function(){
+				if( jQuery(this).find('video').length > 0 ) {
+					jQuery(this).find('video').get(0).play();
+				}
+			}, function(){
+				if( jQuery(this).find('video').length > 0 ) {
+					jQuery(this).find('video').get(0).pause();
+				}
+			});
+
+			if (jQuery("body").hasClass("dark")) {
+				jQuery('.twitter-timeline').attr('data-theme', 'dark');
+			}
+		});
+	</script>
+{% endblock %}
